@@ -2,7 +2,19 @@ require("dotenv").config();
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");
 const { Configuration, OpenAIApi } = require("openai");
+const express = require("express");
 
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});
+
+// openai api
 const config = new Configuration({
   apiKey: process.env.NEXT_PUBLIC_OPEN_AI,
 });
